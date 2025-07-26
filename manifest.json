@@ -19,7 +19,14 @@
   "content_scripts": [
     {
       "matches": ["https://www.linkedin.com/jobs/*", "https://www.seek.com.au/job/*"],
-      "js": ["content.js", "extractLinkedin.js"]
+      "js": ["extractSeek.js", "extractLinkedin.js", "helper.js"],
+      "type": "module"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["helper.js"],
+      "matches": ["<all_urls>"]
     }
   ]
 }

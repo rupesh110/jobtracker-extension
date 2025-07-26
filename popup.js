@@ -25,16 +25,14 @@ document.addEventListener("DOMContentLoaded", () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(currentJob)
     })
-      .then(res => res.json())  
-      .then(data => {
-        console.log("Received from API:", data);
-
-        if (data.result === "success") {
-          alert("Job saved successfully!");
-        } else {
-          alert("Saving job failed!");
-        }
-      })
+       .then(res => {
+          if (res.status === 200) {
+            alert("Job saved successfully!");
+          } else {
+            alert("Saving job failed! Status: " + res.status);
+          }
+          return res.json(); // optional: in case you want to log or use the returned data
+        })
       .catch(err => {
         console.error("Error calling API:", err);
       });
@@ -47,6 +45,7 @@ function displayJob(job) {
     <p><strong>Company:</strong> ${job.company}</p>
     <p><strong>Location:</strong> ${job.location}</p>
     <p><strong>Platform:</strong> ${job.platform}</p>
+     <p><strong>WorkType:</strong> ${job.workType}</p>
     <p><strong>URL:</strong> <a href="${job.url}" target="_blank">${job.url}</a></p>
   `;
   document.getElementById("job-details").innerHTML = jobDetailsHtml;
