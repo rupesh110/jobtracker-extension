@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
           } else {
             alert("Saving job failed! Status: " + res.status);
           }
-          return res.json(); // optional: in case you want to log or use the returned data
+          return res.json();
         })
       .catch(err => {
         console.error("Error calling API:", err);

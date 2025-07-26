@@ -1,5 +1,4 @@
 (() => {
-  // Use global functions directly from window
   const detectWorkType = window.detectWorkType;
   const saveJobData = window.saveJobData;
   const observeDomChanges = window.observeDomChanges;
@@ -24,11 +23,10 @@
     return job;
   }
 
-  // Initial extraction and save
   const initialJob = extractJobData();
   saveJobData(initialJob);
 
-  // Set up MutationObserver with a callback
+
   observeDomChanges(() => {
     const job = extractJobData();
     saveJobData(job);
