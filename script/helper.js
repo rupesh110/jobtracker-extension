@@ -1,4 +1,3 @@
-// helper.js
 
 function detectWorkType(text) {
   if (text.includes("remote") || text.includes("work from home") || text.includes("wfh")) {
@@ -40,7 +39,6 @@ function observeDomChanges(callback) {
   observer.observe(targetNode, config);
 }
 
-// Attach functions to window so other scripts can use them
 window.detectWorkType = detectWorkType;
 window.saveJobData = saveJobData;
 window.observeDomChanges = observeDomChanges;

@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxgCJpRN9nH6MOGTGLs0ora1Kgv_sxojF5OhiWpPzGKyOUqFjnkEZ3APB80OOl0y1na/exec";
+    const SCRIPT_URL = "URL here";
 
     console.log("Before fetch", JSON.stringify(currentJob));
 

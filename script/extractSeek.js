@@ -21,7 +21,6 @@
       location: locationEl?.innerText.trim() || "",
       workType: detectWorkType(fullText),
     };
-    console.log(job);
     return job;
   }
 
