@@ -1,6 +1,4 @@
-(async () => {
-  const { detectWorkType, saveJobData, observeDomChanges } = await import(chrome.runtime.getURL('helper.js'));
-
+(function () {
   function extractLinkedInData() {
     const titleEl = document.querySelector('.job-details-jobs-unified-top-card__job-title');
     const companyAnchor = document.querySelector('.job-details-jobs-unified-top-card__company-name a');
@@ -9,7 +7,7 @@
     const locationEl = document.querySelector('.job-details-jobs-unified-top-card__tertiary-description-container span.tvm__text--low-emphasis');
     const fullText = document.body.innerText.toLowerCase();
 
-    const job = {
+    return {
       title: titleEl?.innerText?.trim() || 'N/A',
       company:
         companyAnchor?.innerText?.trim() ||
@@ -19,21 +17,18 @@
       location: locationEl?.innerText?.trim() || 'N/A',
       platform: 'LinkedIn',
       url: window.location.href,
-      workType: detectWorkType(fullText)
+      workType: window.detectWorkType(fullText)
     };
-
-    return job;
   }
 
-  // Debounce helper
   let debounceTimeout;
   function debouncedSaveJob() {
     clearTimeout(debounceTimeout);
     debounceTimeout = setTimeout(() => {
       const job = extractLinkedInData();
 
-      if (job.title && job.title !== 'N/A' && job.company && job.company !== 'N/A') {
-        saveJobData(job);
+      if (job.title !== 'N/A' && job.company !== 'N/A') {
+        window.saveJobData(job);
         console.log("Job data updated and saved:", job);
       } else {
         console.log("Waiting for job data to load...");
@@ -41,6 +36,6 @@
     }, 4000);
   }
 
-  setTimeout(debouncedSaveJob, 4000); // Initial delay
-  observeDomChanges(debouncedSaveJob); // Observe changes
+  setTimeout(debouncedSaveJob, 4000);
+  window.observeDomChanges(debouncedSaveJob);
 })();

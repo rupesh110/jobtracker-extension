@@ -1,5 +1,8 @@
-(async () => {
-  const { detectWorkType, saveJobData, observeDomChanges } = await import(chrome.runtime.getURL('helper.js'));
+(() => {
+  // Use global functions directly from window
+  const detectWorkType = window.detectWorkType;
+  const saveJobData = window.saveJobData;
+  const observeDomChanges = window.observeDomChanges;
 
   function extractJobData() {
     const titleEl = document.querySelector('[data-automation="job-detail-title"]');
@@ -18,8 +21,8 @@
       location: locationEl?.innerText.trim() || "",
       workType: detectWorkType(fullText),
     };
-
-    return job
+    console.log(job);
+    return job;
   }
 
   // Initial extraction and save

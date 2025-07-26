@@ -40,4 +40,7 @@ function observeDomChanges(callback) {
   observer.observe(targetNode, config);
 }
 
-export { detectWorkType, saveJobData, observeDomChanges };
+// Attach functions to window so other scripts can use them
+window.detectWorkType = detectWorkType;
+window.saveJobData = saveJobData;
+window.observeDomChanges = observeDomChanges;
