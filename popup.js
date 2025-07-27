@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    const SCRIPT_URL = "URL here";
+    const SCRIPT_URL = "";
 
     console.log("Before fetch", JSON.stringify(currentJob));
 
