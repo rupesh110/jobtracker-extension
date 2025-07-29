@@ -37,10 +37,3 @@ function doPost(e) {
 }
 
 
-function doOptions(e) {
-  return ContentService.createTextOutput("")
-    .setMimeType(ContentService.MimeType.TEXT)
-    .setHeader("Access-Control-Allow-Origin", "*")
-    .setHeader("Access-Control-Allow-Methods", "POST, OPTIONS")
-    .setHeader("Access-Control-Allow-Headers", "Content-Type");
-}

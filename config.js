@@ -1,0 +1,1 @@
+const WEB_APP_URL = "URL here";

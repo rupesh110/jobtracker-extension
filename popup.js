@@ -16,11 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    const SCRIPT_URL = "";
-
-    console.log("Before fetch", JSON.stringify(currentJob));
-
-    fetch(SCRIPT_URL, {
+    fetch(WEB_APP_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(currentJob)
