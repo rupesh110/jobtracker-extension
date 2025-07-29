@@ -1,1 +1,1 @@
-const WEB_APP_URL = "URL here";
+const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxgCJpRN9nH6MOGTGLs0ora1Kgv_sxojF5OhiWpPzGKyOUqFjnkEZ3APB80OOl0y1na/exec";
