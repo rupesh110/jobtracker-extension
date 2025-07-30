@@ -21,16 +21,39 @@ function detectWorkType(text) {
   }
 }
 
+let saveTimeout;
+let lastSavedJob = null;
+
 function saveJobData(job) {
   if (!job) return;
-  chrome.storage.local.get("currentJob", (result) => {
-    if (JSON.stringify(result.currentJob) !== JSON.stringify(job)) {
-      chrome.storage.local.set({ currentJob: job }, () => {
-        console.log("Job data updated and saved:", job);
+
+  clearTimeout(saveTimeout);
+  saveTimeout = setTimeout(() => {
+    if (JSON.stringify(lastSavedJob) === JSON.stringify(job)) {
+      return;
+    }
+
+    chrome.storage.local.get("currentJob", (result) => {
+      if (JSON.stringify(result.currentJob) !== JSON.stringify(job)) {
+        chrome.storage.local.set({ currentJob: job }, () => {
+          lastSavedJob = job;
+          console.log("Job data updated and saved:", job);
+        });
+      }
+    });
+  }, 1000); 
+}
+
+function storeSpreadsheetIdOnce(id) {
+  chrome.storage.local.get("spreadsheetId", (result) => {
+    if (!result.spreadsheetId) {
+      chrome.storage.local.set({ spreadsheetId: id }, () => {
+        console.log("Spreadsheet ID stored:", id);
       });
     }
   });
 }
+
 
 function observeDomChanges(callback) {
   const targetNode = document.body;

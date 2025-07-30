@@ -25,7 +25,8 @@
   ],
   "web_accessible_resources": [
     {
-      "resources": ["helper.js"]
+      "resources": ["helper.js"],
+       "matches": ["<all_urls>"]
     }
   ]
 }
