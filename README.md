@@ -2,8 +2,6 @@
 
 A custom Chrome extension to automate and simplify tracking job applications across LinkedIn and Seek by scraping job data and saving it to Google Sheets via a Google Apps Script backend.
 
----
-
 ## Features
 
 - Automatically extract job details (title, company, location, URL, work type) from LinkedIn and Seek job pages  
@@ -13,13 +11,7 @@ A custom Chrome extension to automate and simplify tracking job applications acr
 - Ready for future integration with Trello and Notion for enhanced workflow management  
 - Open source and easily customizable  
 
----
-
 ## Demo
-
-![Demo screenshot or GIF here — optional]
-
----
 
 ## Getting Started
 
@@ -47,16 +39,13 @@ A custom Chrome extension to automate and simplify tracking job applications acr
    - Load the extension unpacked in Chrome (chrome://extensions) with Developer mode enabled  
    - Test the extension on LinkedIn or Seek job pages  
 
----
-
 ## Usage
 
 - Navigate to a LinkedIn or Seek job listing page  
-- Click the extension icon  
+- Click the extension  
 - Review the extracted job details  
 - Click "Save to Sheet" to store the job in your Google Sheet  
 
----
 
 ## Technical Details
 
@@ -65,14 +54,8 @@ A custom Chrome extension to automate and simplify tracking job applications acr
 - **Storage**: Chrome local storage temporarily holds scraped job data before submission  
 - **Data Validation**: Enforces job status options in the sheet (`Just Applied`, `Shortlisted`, `Interviewed`, `Rejected`)  
 
----
-
 ## Contribution
 
 Contributions, suggestions, and bug reports are welcome! Feel free to fork the repo and submit a pull request.
 
 
-
----
-
-## Ack
